@@ -1,0 +1,114 @@
+﻿@*@model IEnumerable<WebApplication6.Models.TestModel>*@
+@model WebApplication6.Models.TestModel
+
+@{
+    ViewData["Title"] = "ShowData";
+}
+<style>
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        width: 100%;
+        height: 200px;
+        background-color: black;
+        color: white;
+        margin-bottom: 5px;
+        
+    }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+
+    .container {
+        padding: 2px 16px;
+        align-content: center
+    }
+    .row {
+        align-content: center;
+        text-align:center
+            
+    }
+
+    .arrow {
+        border: solid black;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        color: white;
+        background-color: white
+    }
+
+    .right {
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+    }
+</style>
+
+<div style="text-align:center">
+    <h1>@Model.live.twod</h1>
+</div>
+@{ 
+    int counter = 1;
+}
+@foreach (var item in @Model.result)
+{
+
+    <div style="width:100%">
+        <div class="row">
+            <div class="card">
+                <div class="row" style="text-align:center">
+                    <h4>@item.open_time</h4>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="container">
+                            <h6>Set</h6>
+                            <p>@item.set</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="container">
+                            <h6>Value</h6>
+                            <p>@Html.DisplayFor(modelItem => item.value)</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="container">
+                            <h6>2D</h6>
+                            <p>
+                                @item.set
+                                @if (counter == 1)
+                                {
+                                    <i class="arrow dropright"></i>
+                                }
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    counter = counter + 1;
+}
+
+@*<table class="table">
+        <thead>
+            <tr>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>*@

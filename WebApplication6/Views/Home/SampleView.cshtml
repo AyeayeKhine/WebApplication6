@@ -1,0 +1,50 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="keywords" content="IKTest" />
+    <title></title>
+    <style>
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: darkgray;
+        }
+
+            nav a {
+                display: block;
+                padding: 15px 25px;
+                text-decoration: none;
+                color: #d51818
+            }
+
+                nav a:hover {
+                    background-color: black;
+                }
+    </style>
+</head>
+<body>
+    @{
+        var FN = @ViewData["FN"];
+        if (FN != null)
+        {
+            <label>Welcome </label> @FN
+        }
+        else
+        {
+            <form asp-action="SampleView" method="post">
+                <input type="text" id="firstName" name="firstName" placeholder="FirstName" /><br />
+                <input type="text" id="password" name="password" placeholder="Password" /><br />
+                <input type="submit" value="Submit" />
+                <input type="reset" value="Reset" />
+            </form>
+        }
+    }
+    
+
+</body>
+</html>

@@ -60,5 +60,20 @@ namespace WebApplication6.Controllers
                 throw;
             }
         }
+       
+        public IActionResult SampleView()
+        {
+            ViewData["FN"] = null;
+            return View();
+        }     
+
+        [HttpPost]
+        public IActionResult SampleView(string firstName)
+        {
+            string FN = firstName;
+            ViewData["FN"] = FN;
+            return View();
+        }
+       
     }
 }

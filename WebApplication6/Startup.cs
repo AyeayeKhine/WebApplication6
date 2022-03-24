@@ -50,7 +50,7 @@ namespace WebApplication6
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=ShowData}/{id?}");
+                    pattern: "{controller=Home}/{action=SampleView}/{id?}");
             });
         }
     }
